@@ -1,0 +1,10 @@
+LICENSE-MIT
+MANIFEST.in
+README.md
+setup.py
+ttapi.py
+ttapi.egg-info/PKG-INFO
+ttapi.egg-info/SOURCES.txt
+ttapi.egg-info/dependency_links.txt
+ttapi.egg-info/requires.txt
+ttapi.egg-info/top_level.txt

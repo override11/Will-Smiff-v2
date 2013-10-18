@@ -1,0 +1,74 @@
+Metadata-Version: 1.1
+Name: ttapi
+Version: 1.1.1
+Summary: Allows you to create bots for turntable.fm.
+Home-page: https://github.com/alaingilbert/Turntable-API/tree/python_ttapi
+Author: Alain Gilbert
+Author-email: alain.gilbert.15@gmail.com
+License: MIT
+Description: ## Installation
+        
+        ### Using pip
+        
+            pip install ttapi
+        
+        ### Via source
+        
+        Obtain the source by downloading from the web or cloning with git. In the
+        directory containing setup.py run:
+        
+            python setup.py install
+        
+        ## Examples
+        
+        ### Chat bot
+        
+        This bot respond to anybody who write "/hello" on the chat.
+        
+        ```py
+        from ttapi import Bot
+        bot = Bot(AUTH, USERID, ROOMID)
+        
+        def speak(data):
+           name = data['name']
+           text = data['text']
+           if text == '/hello':
+              bot.speak('Hey! How are you %s ?' % name)
+        
+        bot.on('speak', speak)
+        
+        bot.start()
+        ```
+        
+        ### Simple
+        
+        ```py
+        from ttapi import Bot
+        bot = Bot(AUTH, USERID, ROOMID)
+        
+        # Define callbacks
+        def roomChanged(data): print 'The bot has changed room.', data
+        def speak(data):       print 'Someone has spoken.',       data
+        def updateVotes(data): print 'Someone has voted.',        data
+        def registered(data):  print 'Someone registered.',       data
+        
+        # Bind listeners
+        bot.on('roomChanged',  roomChanged)
+        bot.on('speak',        speak      )
+        bot.on('update_votes', updateVotes)
+        bot.on('registered',   registered )
+        
+        # Start the bot
+        bot.start()
+        ```
+        
+Keywords: turntable bot
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Utilities
